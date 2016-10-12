@@ -1,4 +1,4 @@
-FROM buildpack-deps:xenial-scm
+FROM buildpack-deps:xenial
 # Clang
 RUN apt-get update && apt-get install -y clang
 ENV CC clang
