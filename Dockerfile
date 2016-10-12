@@ -1,4 +1,4 @@
-FROM base/archlinux
+FROM greyltc/archlinux
 # Clang
 RUN rm -rf /etc/pacman.d/gnupg
 RUN rm -rf /root/.gnupg
