@@ -1,5 +1,11 @@
 FROM base/archlinux
 # Clang
+RUN rm -R /etc/pacman.d/gnupg
+RUN rm -R /root/.gnupg
+RUN dirmngr </dev/null
+
+RUN pacman-key --init
+RUN pacman-key --populate archlinux
 RUN pacman-key --refresh-keys && pacman -Syu --noconfirm
 RUN pacman -S --noconfirm clang
 ENV CC clang
