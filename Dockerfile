@@ -1,6 +1,6 @@
 FROM base/archlinux
 # Clang
-RUN pacman -Syu --noconfirm
+RUN pacman-key --refresh-keys && pacman -Syu --noconfirm
 RUN pacman -S --noconfirm clang
 ENV CC clang
 ENV CXX clang++
