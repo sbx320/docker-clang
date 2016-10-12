@@ -2,7 +2,6 @@ FROM base/archlinux
 # Clang
 RUN rm -rf /etc/pacman.d/gnupg
 RUN rm -rf /root/.gnupg
-RUN dirmngr </dev/null
 
 RUN pacman-key --init
 RUN pacman-key --populate archlinux
