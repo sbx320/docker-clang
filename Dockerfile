@@ -1,8 +1,7 @@
-FROM base/archlinux
+FROM alpine:edge
 # Clang
-RUN pacman -S archlinux-keyring && Then pacman -Syu
-RUN pacman -Sy clang
+RUN apk add --no-cache clang build-base
 ENV CC clang
 ENV CXX clang++
-RUN ln -s /usr/bin/cc /usr/bin/clang
-RUN ln -s /usr/bin/cxx /usr/bin/clang++
+RUN ln -s /bin/cc /bin/clang
+RUN ln -s /bin/cxx /bin/clang++
