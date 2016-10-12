@@ -1,6 +1,7 @@
-FROM alpine:edge
+FROM base/archlinux
 # Clang
-RUN apk add --no-cache clang build-base
+RUN pacman -S archlinux-keyring && pacman -Syu
+RUN pacman -S clang
 ENV CC clang
 ENV CXX clang++
 ENV CPATH $CPATH:/usr/lib/gcc/x86_64-alpine-linux-musl/6.2.1/include/
