@@ -1,8 +1,7 @@
-FROM greyltc/archlinux
+FROM buildpack-deps:xenial-scm
 # Clang
-RUN pacman -S --noconfirm clang
+RUN apt-get update && apt-get install -y clang
 ENV CC clang
 ENV CXX clang++
-ENV CPATH $CPATH:/usr/lib/gcc/x86_64-alpine-linux-musl/6.2.1/include/
 RUN ln -s /bin/cc /bin/clang
 RUN ln -s /bin/cxx /bin/clang++
