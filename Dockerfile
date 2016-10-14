@@ -7,16 +7,21 @@ RUN mkdir /src && \
   cd /src && \
   svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm && \
   cd llvm/tools && \
-  svn co http://llvm.org/svn/llvm-project/cfe/trunk clang
- 
+  svn co http://llvm.org/svn/llvm-project/cfe/trunk clang && \
+  cd clang/tools && \
+  svn co http://llvm.org/svn/llvm-project/clang-tools-extra/trunk extra && \
+  cd ../../../projects && \
+  svn co http://llvm.org/svn/llvm-project/compiler-rt/trunk compiler-rt 
+  
 # Compile
 RUN cd /src && \
-  mkdir build && cd build && \
-  cmake .. && \
+  mkdir build && \
+  cd build && \
+  cmake -DCMAKE_BUILD_TYPE=Release ../llvm && \
   cmake --build .
   
 # Install
-RUN cd /src && \
+RUN cd /src/build && \
   cmake --build . --target install
   
 # Cleanup
