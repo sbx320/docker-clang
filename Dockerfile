@@ -12,11 +12,12 @@ RUN mkdir /src && \
 # Compile
 RUN cd /src && \
   mkdir build && cd build && \
-  ../llvm/configure --enable-optimized --enable-targets=host --disable-compiler-version-checks && \
-  make -j 8 
+  cmake .. && \
+  cmake --build .
   
 # Install
-RUN make install
+RUN cd /src && \
+  cmake --build . --target install
   
 # Cleanup
 RUN apt-get clean
