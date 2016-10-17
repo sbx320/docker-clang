@@ -26,7 +26,7 @@ RUN cd /src/build && \
   
 # Cleanup
 RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /src
 
 # Setup clang as default compiler
 ENV CC clang
