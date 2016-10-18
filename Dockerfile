@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y clang-4.0 && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
   
 # Setup clang as default compiler
-ENV CC clang
-ENV CXX clang++
-RUN ln -s /bin/cc /bin/clang
-RUN ln -s /bin/cxx /bin/clang++
+ENV CC clang-4.0
+ENV CXX clang++-4.0
+RUN ln -s /usr/bin/clang-4.0 /bin/cc &&\
+  ln -s /usr/bin/clang++-4.0 /bin/cxx
