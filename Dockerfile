@@ -1,5 +1,5 @@
 FROM buildpack-deps:xenial
-# Clang
+RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial main" && \
   add-apt-repository "deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial main" && \
   wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
