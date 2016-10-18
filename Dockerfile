@@ -1,7 +1,6 @@
 FROM buildpack-deps:xenial
 RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial main" && \
-  add-apt-repository "deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial main" && \
+RUN add-apt-repository -s "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial main" && \
   wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
   
 RUN apt-get update && apt-get install -y clang-4.0 && \
